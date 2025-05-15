@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operator Pembanding ANDREAS</title>
+</head>
+<body>
+    <h1>Operator Pembanding ANDREAS</h1>
+    <div id="hasilPembanding"></div>
+
+    <script>
+        // Initialize variables
+        let a = 5;
+        let b = '5';
+        let c = 2;
+        let hasil = "";
+
+        // Perform comparisons and concatenate results
+        hasil += "a == b: " + (a == b) + "<br>";       // Checks if a is equal to b
+        hasil += "a === b: " + (a === b) + "<br>";     // Checks if a is strictly equal to b
+        hasil += "a != b: " + (a != b) + "<br>";       // Checks if a is not equal to b
+        hasil += "a !== b: " + (a !== b) + "<br>";     // Checks if a is strictly not equal to b
+        hasil += "a > c: " + (a > c) + "<br>";         // Checks if a is greater than c
+        hasil += "a < c: " + (a < c) + "<br>";         // Checks if a is less than c
+        hasil += "a >= a: " + (a >= a) + "<br>";       // Checks if a is greater than or equal to a
+        hasil += "c <= a: " + (c <= a) + "<br>";       // Checks if c is less than or equal to a
+
+        // Output the result to the div element
+        document.getElementById("hasilPembanding").innerHTML = hasil;
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hitung Prisma Persegi Panjang RIZKI</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container {
+    background: rgba(0,0,0,0.35);
+    border-radius: 16px;
+    padding: 20px 30px;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  }
+  label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  input[type="number"]:focus {
+    background: rgba(255,255,255,0.35);
+  }
+  button {
+    margin-top: 25px;
+    width: 100%;
+    background-color: #00a896;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px #007a6c;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #007a6c;
+  }
+  .result {
+    margin-top: 25px;
+    background: rgba(0,0,0,0.25);
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    text-align: center;
+    min-height: 70px;
+    user-select: text;
+  }
+  @media (max-width: 400px) {
+    body {
+      padding: 15px;
+    }
+    .container {
+      padding: 18px 22px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Hitung Prisma Persegi Panjang">
+    <h1>Prisma Persegi Panjang</h1>
+    <label for="length">Panjang (cm):</label>
+    <input type="number" id="length" name="length" min="0" step="any" aria-required="true" placeholder="Masukkan panjang" />
+    
+    <label for="width">Lebar (cm):</label>
+    <input type="number" id="width" name="width" min="0" step="any" aria-required="true" placeholder="Masukkan lebar" />
+    
+    <label for="height">Tinggi (cm):</label>
+    <input type="number" id="height" name="height" min="0" step="any" aria-required="true" placeholder="Masukkan tinggi" />
+    
+    <button id="calculate-btn" aria-label="Hitung volume dan luas permukaan">Hitung</button>
+    
+    <div class="result" id="result" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+<script>
+  const lengthInput = document.getElementById('length');
+  const widthInput = document.getElementById('width');
+  const heightInput = document.getElementById('height');
+  const calculateBtn = document.getElementById('calculate-btn');
+  const resultDiv = document.getElementById('result');
+
+  calculateBtn.addEventListener('click', () => {
+    const length = parseFloat(lengthInput.value);
+    const width = parseFloat(widthInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (isNaN(length) || length <= 0) {
+      resultDiv.textContent = 'Masukkan panjang yang valid dan lebih besar dari 0.';
+      return;
+    }
+    if (isNaN(width) || width <= 0) {
+      resultDiv.textContent = 'Masukkan lebar yang valid dan lebih besar dari 0.';
+      return;
+    }
+    if (isNaN(height) || height <= 0) {
+      resultDiv.textContent = 'Masukkan tinggi yang valid dan lebih besar dari 0.';
+      return;
+    }
+
+    // Calculate volume and surface area
+    const volume = length * width * height;
+    const surfaceArea = 2 * (length*width + width*height + height*length);
+
+    resultDiv.innerHTML =
+      `Volume: <strong>${volume.toFixed(2)}</strong> cm³<br>` +
+      `Luas Permukaan: <strong>${surfaceArea.toFixed(2)}</strong> cm²`;
+  });
+</script>
+</body>
+</html>
+
+

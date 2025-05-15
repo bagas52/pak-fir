@@ -1,0 +1,28 @@
+
+<html>
+<head>
+    <title>Operator Logika ANDREAS</title>
+</head>
+<body>
+    <h1>Operator Logika ANDREAS</h1>
+    <div id="hasillogika"></div>
+
+    <script>
+        let a = true;  // Mendefinisikan variabel a sebagai true
+        let b = false; // Mendefinisikan variabel b sebagai false
+        let hasils = ""; // Inisialisasi string kosong untuk menyimpan hasil
+
+        // Menghitung hasil operator logika AND
+        hasils += "a && b: " + (a && b) + "<br>"; 
+        // Menghitung hasil operator logika OR
+        hasils += "a || b: " + (a || b) + "<br>"; 
+        // Menampilkan nilai negasi dari a
+        hasils += "negasi a: " + (!a) + "<br>"; 
+        // Menampilkan nilai negasi dari b
+        hasils += "negasi b: " + (!b) + "<br>"; 
+
+        // Menampilkan hasil ke dalam div dengan id 'hasillogika'
+        document.getElementById("hasillogika").innerHTML = hasils;
+    </script>
+</body>
+</html>

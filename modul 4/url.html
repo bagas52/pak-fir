@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh External JavaScript dengan URL</title>
+</head>
+<body>
+
+  <h1>Selamat Datang di Halaman Utama Andreas</h1>
+  <p id="pesan"></p>
+
+  <!-- File JavaScript lokal -->
+  <script src="url.js"></script>
+
+  <!-- Library Moment.js dari CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+  <!-- Kode JavaScript menggunakan Moment.js -->
+  <script>
+    // Tunggu sampai seluruh dokumen dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('pesan').textContent =
+        "Halaman ini dimuat pada: " + moment().format('MMMM Do YYYY, h:mm:ss a');
+    });
+  </script>
+
+</body>
+</html>
